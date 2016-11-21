@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Assign Users to Courses">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" rel="stylesheet" />
+</head>
+<body>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-10'>
+        <h1>Assign Users to Courses</h1>
+      </div>
+      <div class='col-md-1'>
+        <a class='btn btn-primary' href="{% url 'home:success' %}">Dashboard</a>
+      </div>
+      <div class='col-md-1'>
+        <a class='btn btn-primary' href="{% url 'home:logout' %}">Logout</a>
+      </div>
+    </div>
+    <div class='row'>
+      <form>
+        {% csrf_token %}
+        <label class='col-md-1 text-right'>Users:</label>
+          <select class = 'col-md-3' name="user">
+            {% for each in users %}
+            <option value={{each.id}}>{{each.first_name}} {{each.last_name}}</option>
+            {% endfor %}
+          </select>
+        <label for='courses' class='col-md-1 text-right'>Course:</label>
+          <select  class='col-md-2' name="course">
+            {% for each in courses %}
+            <option value={{each.id}}>{{each.title}}</option>
+            {% endfor %}
+          </select>
+        <div class='col-md-1'>
+          <input class='btn btn-primary' type='submit' formaction='{% url 'registrar:create' %}' formmethod='POST'/>
+        </div>
+      </form>
+    </div>
+    <div id='courses'>
+      <table>
+        <thead>
+          <tr><th>Class</th><th>Description</th><th>Students</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          {% for class in course_stats %}
+          <div class='row'>
+            <tr><td class='col-md-3'>{{class.title}}</td>
+              <td class='col-md-6'>{{class.description}}</td>
+              <td class='col-md-2'>{{class.students}}</td>
+              <td class='col-md-2'><a href='#Show'>Show</a></td></tr>
+          </div>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

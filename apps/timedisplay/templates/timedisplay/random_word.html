@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Exercise to display Pokemon images">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="normalize.css"> -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href=" /static/timedisplay/random_word.css">
+</head>
+<body>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-4'>
+
+      </div>
+      <div class='col-md-4 center'>
+        <div id="theWord" class="text-center">
+          {{word}}<br />
+          Count: {{request.session.counter}}
+        </div>
+        <form action='push/' method='POST'>
+          {% csrf_token %}
+          <button id='theButton' class='button-block btn btn-primary' type='submit'>Push This!</button>
+        </form>
+      </div>
+      <div class='col-md-4'>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
