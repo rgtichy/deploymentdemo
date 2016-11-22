@@ -15,8 +15,8 @@ def index(request):
 
 def create(request):
     if request.method == 'POST':
-        Course.objects.create(title = request.POST['title'])
-        CourseExtended.objects.create(description = request.POST['description'])
+        temp = Course.objects.create(title = request.POST['title'])
+        CourseExtended.objects.create(course_id=temp.id, description = request.POST['description'])
     return redirect('courses:index')
 
 def showCourse(request,id):

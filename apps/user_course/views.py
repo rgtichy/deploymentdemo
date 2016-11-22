@@ -22,7 +22,6 @@ def index(request):
              'user' : models.User.objects.get(id = request.session['user_id']),
              'course_stats' : course_data
     }
-    print context
     return render(request, 'user_course/index.html',context=context)
 def create(request):
 
@@ -31,9 +30,7 @@ def create(request):
     if not request.method=='POST':
         return redirect('registrar:index')
     ufid = int(request.POST['user'])
-    print "ufid=", ufid
     cfid = int(request.POST['course'])
-    print "courseid=", cfid
     uf = models.User.objects.get(id= ufid)
     cf = models.Course.objects.get(id= cfid)
     cf.user.add(uf)

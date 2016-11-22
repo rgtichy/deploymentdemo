@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'apps.ninjas',
     'apps.friendapp',
     'apps.userloginreg',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
