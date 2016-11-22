@@ -16,7 +16,7 @@ def index(request, *args):
             context['image'] = "/static/ninjas/Leonardo.jpg"
             context['name'] = "Leonardo"
         elif arg == 'red':
-            context['image'] = "/static/ninjas/Raphael.png"
+            context['image'] = "/static/ninjas/Raphael.jpeg"
             context['name'] = "Raphael"
         elif arg == 'orange':
             context['image'] = "/static/ninjas/Michelangelo.jpg"
