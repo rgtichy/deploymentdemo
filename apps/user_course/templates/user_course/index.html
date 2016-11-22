@@ -32,7 +32,7 @@
         <label for='courses' class='col-md-1 text-right'>Course:</label>
           <select  class='col-md-2' name="course">
             {% for each in courses %}
-            <option value={{each.id}}>{{each.title}}</option>
+            <option value={{each.course.id}}>{{each.course.title}}</option>
             {% endfor %}
           </select>
         <div class='col-md-1'>
