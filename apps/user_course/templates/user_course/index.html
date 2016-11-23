@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Register Users in Courses</title>
   <meta charset="utf-8">
   <meta name="description" content="Assign Users to Courses">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,18 +42,18 @@
       </form>
     </div>
     <div id='courses'>
-      <table>
+      <table class='table table-striped'>
         <thead>
           <tr><th>Class</th><th>Description</th><th>Students</th><th>Actions</th></tr>
         </thead>
         <tbody>
           {% for class in course_stats %}
-          <div class='row'>
-            <tr><td class='col-md-3'>{{class.title}}</td>
-              <td class='col-md-6'>{{class.description}}</td>
-              <td class='col-md-2'>{{class.students}}</td>
-              <td class='col-md-2'><a href='#Show'>Show</a></td></tr>
-          </div>
+          <tr>
+            <td class='col-md-3'>{{class.title}}</td>
+            <td class='col-md-6'>{{class.description}}</td>
+            <td class='col-md-2'>{{class.students}}</td>
+            <td class='col-md-2'><a href='#Show'>Show</a></td>
+          </tr>
           {% endfor %}
         </tbody>
       </table>
