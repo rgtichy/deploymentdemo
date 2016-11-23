@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'apps.courses',
+    'apps.inventory',
     'apps.user_course',
     'apps.timedisplay',
     'apps.ninjas',
